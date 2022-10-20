@@ -66,7 +66,8 @@ endfunction
 
 function! s:get_repo_url_from_git_protocol(uri)
     let s:matches = matchlist(a:uri, '^git@\(.*\):\(.*\)$')
-    return "https://" . s:matches[1] .'/' . s:trim_git_suffix(s:matches[2])
+    " return "https://" . s:matches[1] .'/' . s:trim_git_suffix(s:matches[2])
+    return "https://github.com/" . s:trim_git_suffix(s:matches[2])
 endfunction
 
 function! s:get_repo_url_from_ssh_protocol(uri)
