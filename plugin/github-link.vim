@@ -21,7 +21,7 @@ endfunction
 
 function! s:execute_with_ref(ref, startline, endline)
     let s:remote = system("git ls-remote --get-url origin")
-    if s:remote !~ '.*[github|gitlab].*'
+    if s:remote !~ '.*[github|gitlab|gh_trr].*'
         echoerr "Unknown remote host"
         return
     endif
@@ -46,14 +46,14 @@ function! s:execute_with_ref(ref, startline, endline)
 
     " Check for doc extensions and add plain query parameter, because otherwise
     " GitHub ignores the line highlight
-    if s:link =~? '\v.*\.(md|rst|markdown|mdown|mkdn|md|textile|rdoc|org|creole|mediawiki|wiki|rst|asciidoc|adoc|asc|pod)$' && s:remote =~ '.*github.*'
+    if s:link =~? '\v.*\.(md|rst|markdown|mdown|mkdn|md|textile|rdoc|org|creole|mediawiki|wiki|rst|asciidoc|adoc|asc|pod)$' && s:remote =~ '.*[github|gh_trr].*'
         let s:link = s:link . "?plain=1"
     endif
 
     if a:startline == a:endline
         let s:link = s:link . "#L" . a:startline
     else
-        if s:remote =~ '.*github.*'
+        if s:remote =~ '.*[github|gh_trr].*'
             let s:link = s:link . "#L" . a:startline . "-L". a:endline
         elseif s:remote =~ '.*gitlab.*'
             let s:link = s:link . "#L" . a:startline . "-". a:endline
