@@ -1,0 +1,6 @@
+:GetCommitLink	vim-github-link.txt	/*:GetCommitLink*
+:GetCurrentBranchLink	vim-github-link.txt	/*:GetCurrentBranchLink*
+:GetCurrentCommitLink	vim-github-link.txt	/*:GetCurrentCommitLink*
+vim-github-link-commands	vim-github-link.txt	/*vim-github-link-commands*
+vim-github-link-usage	vim-github-link.txt	/*vim-github-link-usage*
+vim-github-link.txt	vim-github-link.txt	/*vim-github-link.txt*
